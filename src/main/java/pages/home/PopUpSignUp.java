@@ -17,12 +17,18 @@ public class PopUpSignUp extends BasePage {
     WebElement signInButton;
 
     public void enterUsername(String username) {
+        waitForElementVisible(signUsername); // wait here
+        signUsername.clear();
         signUsername.sendKeys(username);
     }
-    public void enterPassword(String password) {
+    public void enterPassword(String password)
+    {
+        waitForElementVisible(signPassword); // wait here
+        signPassword.clear();
         signPassword.sendKeys(password);
     }
     public void clickPopUpSignUp() {
+        waitForElementClickable(signInButton); // optional
         signInButton.click();
 
 

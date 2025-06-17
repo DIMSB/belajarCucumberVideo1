@@ -9,7 +9,7 @@ import pages.home.PopUpSignUp;
 import pages.homePage;
 import utilities.DriverManagerial;
 
-import static org.bouncycastle.cms.RecipientId.password;
+
 
 public class HomeStepDefinition  {
 
@@ -26,15 +26,14 @@ public class HomeStepDefinition  {
        homepagis.clickSignUpLink();
     }
 
-    @And("fill the username textbox with {string username}")
+    @And("fill the username textbox with {string}")
     public void fillTheUsernameTextboxWith(String username) {
         PopUpSignUp popUpSignUp = new PopUpSignUp();
         popUpSignUp.enterUsername(username);
     }
 
-    @And("i fill the password textbox with {string password}")
-    public void iFillThePasswordTextboxWith(String arg0) {
-        PopUpSignUp popUpSignUp = new PopUpSignUp();
+    @And("i fill the password textbox with {string}")
+    public void iFillThePasswordTextboxWith(String password) {PopUpSignUp popUpSignUp = new PopUpSignUp();
         popUpSignUp.enterPassword(password);
     }
 
@@ -49,6 +48,9 @@ public class HomeStepDefinition  {
     @Then("I should see Message {string}")
     public void verifiyMessage(String message)  {
 
-    }}
+    }
+
+
+}
 
 
