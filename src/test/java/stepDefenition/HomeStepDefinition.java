@@ -5,10 +5,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.home.PopUpSignUp;
 import pages.homePage;
+import utilities.AllertHandler;
 import utilities.DriverManagerial;
 
+import java.time.Duration;
 
 
 public class HomeStepDefinition  {
@@ -33,7 +39,8 @@ public class HomeStepDefinition  {
     }
 
     @And("i fill the password textbox with {string}")
-    public void iFillThePasswordTextboxWith(String password) {PopUpSignUp popUpSignUp = new PopUpSignUp();
+    public void iFillThePasswordTextboxWith(String password)
+    {PopUpSignUp popUpSignUp = new PopUpSignUp();
         popUpSignUp.enterPassword(password);
     }
 
@@ -47,6 +54,13 @@ public class HomeStepDefinition  {
 
     @Then("I should see Message {string}")
     public void verifiyMessage(String message)  {
+        WebDriver driver = DriverManagerial.getDriver();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+
+        AllertHandler allertHandler = new AllertHandler();
+        String actualAllertMessage= allertHandler.getAlertText();
+        System.out.println("actual Allert Message" +actualAllertMessage);
 
     }
 

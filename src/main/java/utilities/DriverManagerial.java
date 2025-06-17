@@ -6,7 +6,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverManagerial {
 
-    private static WebDriver driver;
+    static WebDriver driver;
 
     public static WebDriver getDriver() {
         if (driver == null) {
@@ -16,6 +16,8 @@ public class DriverManagerial {
         }
         return driver;
     }
+
+
 
     public static void quitDriver() {
         if (driver != null) {
